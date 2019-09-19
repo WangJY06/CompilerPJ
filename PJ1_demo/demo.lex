@@ -4,15 +4,14 @@
 %option     nounput
 %option     noyywrap
 
-LETTER		[A-Za-z]
 WS          [ \t\n]+
 DIGIT       [0-9]
 INTEGER     {DIGIT}+
 REAL        {DIGIT}+"."{DIGIT}*
 
 %%
-// skip blanks and tabs
-{WS}        return WS;
+<<EOF>>     return T_EOF;
+{WS}        return WS; // skip blanks and tabs
 
 {INTEGER}	return INTEGER;
 {REAL}		return REAL;

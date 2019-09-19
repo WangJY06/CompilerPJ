@@ -8,23 +8,28 @@ int yylex();
 extern "C" FILE* yyin;
 extern "C" char* yytext;
 
-int main(int argc, char* args[]) {
+int main(int argc, char** argv) {
     if (argc > 1) {
-        FILE *file = fopen(args[1], "r");
+        FILE *file = fopen(argv[1], "r");
         if (!file) {
             cerr << "Can not open file." << endl;
             return 1;
         } else {
             yyin = file;
         }
+    } else {
+        yyin = stdin;
     }
     
     // output header
     cout<<setw(5)<<left<<"Row"<<setw(5)<<left<<"Col"<<setw(20)<<left<<"Type"<<"Token/Error"<<endl;
     
-    while(1) {
-        int ret = yylex();
-        switch(ret) {
+    while (true) {
+        int n = yylex();
+        if (n == T_EOF) {
+            break
+        }
+        switch(n) {
             case WS:
                 type = "whitespace";
                 break;
@@ -38,15 +43,17 @@ int main(int argc, char* args[]) {
                 token = yytext;
                 break;
             // other cases?
+            
             default:
                 type = "error";
                 token = yytext;
         }
+        
+        // print (rows and cols?)
+        
     }
     
-    // rows and cols?
-    
-    // num of tokens and errors?
+    // count num of tokens and errors?
     
     return 0;
 }
