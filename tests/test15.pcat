@@ -1,0 +1,30 @@
+(* This is a test of nested non-recursive parameterless *)
+(* procedure calls with local variables.                *)
+
+PROGRAM IS
+    VAR I : INTEGER := 0;
+    PROCEDURE ADDONE() IS
+	VAR J : INTEGER := 0;
+	PROCEDURE OKAY() IS 
+	    VAR CONSTANT : INTEGER := 0;
+	BEGIN
+	    CONSTANT := 1;
+	    J := J + CONSTANT;
+	END;
+    BEGIN
+	J := I;
+	OKAY();
+	I := J;
+    END;
+BEGIN 
+    I := 0;
+    WRITE("I = ", I, " (SHOULD BE 0)");
+    ADDONE();
+    WRITE("I = ", I, " (SHOULD BE 1)");
+    ADDONE();
+    WRITE("I = ", I, " (SHOULD BE 2)");
+    WRITE("ALL DONE!");
+END;
+
+
+

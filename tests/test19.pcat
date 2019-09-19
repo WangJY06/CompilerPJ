@@ -1,0 +1,12 @@
+(* This is a test of while loops. *)
+
+PROGRAM IS
+    VAR A : INTEGER := 0;
+    VAR B : BOOLEAN := FALSE;
+BEGIN
+    WHILE NOT B DO
+      A := A + 1;
+      B := A > 100;
+    END
+    WRITE ("A = ", A, " (SHOULD BE 101)");
+END;

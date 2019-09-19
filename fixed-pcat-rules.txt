@@ -1,0 +1,44 @@
+expression		-> or_operand
+
+or_operand		-> or_operand OR and_operand
+				-> and_operand
+
+and_operand		-> and_operand AND relationship
+				-> relationship
+
+// a > b > c is illegal
+relationship	-> summand '>' summand
+				-> summand '<' summand
+				-> summand '=' summand
+				-> summand '>=' summand
+				-> summand '<=' summand
+				-> summand '<>' summand
+				-> summand
+
+summand			-> summand '+' factor
+				-> summand '-' factor
+				-> factor
+				
+factor			-> factor '*' unary
+				-> factor '/' unary
+				-> factor DIV unary
+				-> factor MOD unary
+				-> unary
+				
+unary			-> '+' unary
+				-> '-' unary
+				-> NOT unary
+				-> term
+				
+term			-> number
+				-> l-value
+				-> ID actual-params
+				-> ID comp-values
+				-> ID array-values
+				-> '(' expression ')'
+				-> constant
+				
+constant		-> TRUE
+				-> FALSE
+				-> NIL
+				

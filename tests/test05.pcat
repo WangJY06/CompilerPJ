@@ -1,0 +1,33 @@
+(* testing records *)
+
+PROGRAM IS
+    VAR I : INTEGER := 0;
+    TYPE COMPLEX IS RECORD R: REAL; I : REAL; END;
+    TYPE PAIR IS RECORD FIRST: COMPLEX; SECOND : COMPLEX; END;
+    VAR C : COMPLEX := COMPLEX { R := 0.0; I := 0.0 };
+    VAR P : PAIR := PAIR { FIRST := COMPLEX { R := 0.0; I := 0.0 };
+                           SECOND := COMPLEX { R := 0.0; I := 0.0 } };
+    PROCEDURE PRINT() IS BEGIN
+	WRITE("    (", C.R, ", ", C.I, ")");
+    END;
+BEGIN 
+    C.R := 1.0;
+    C.I := 0.0;
+    P.FIRST := C;
+    C.R := 0.0;
+    C.I := 1.0;
+    P.SECOND := C;
+    C := P.FIRST;
+    WRITE ("The first complex number should be (1.0, 0.0):");
+    PRINT();
+    C := P.SECOND;
+    WRITE ("The second complex number should be (0.0, 1.0):");
+    PRINT();
+    IF P.FIRST.R <> P.SECOND.R THEN 
+	WRITE ("and these two complex numbers are not equal!");
+    ELSIF P.FIRST.I <> P.SECOND.I THEN 
+	WRITE ("and these two complex numbers are not equal!");
+    ELSE
+	WRITE ("and these two complex numbers are equal?");
+    END;
+END;
