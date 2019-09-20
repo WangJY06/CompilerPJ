@@ -11,7 +11,7 @@
 3. `sudo apt-get install bison`
 
 ### DEMO
-提供一个demo作为入门的参考，在demo基础上补充完成相应功能即可：[demo1](PJ1demo)
+提供一个demo作为入门的参考，在demo基础上补充完成相应功能即可：[demo1](PJ1_demo)
 
 ### 参考资料
 1. [PCAT语言参考](pcat语言参考指南.pdf)
