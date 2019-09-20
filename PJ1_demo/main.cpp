@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string.h>
 #include <stdio.h>
+#include <iomanip>
 #include "lexer.h"
 using namespace std;
 
@@ -26,9 +27,9 @@ int main(int argc, char** argv) {
     
     while (true) {
         int n = yylex();
-        if (n == T_EOF) {
-            break
-        }
+        string type = "";
+        string token = "";
+        if (n == T_EOF) break;
         switch(n) {
             case INTEGER:
                 // overflow? (see file test20.pcat)
