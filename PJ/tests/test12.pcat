@@ -1,0 +1,16 @@
+(* This is a test of unnested non-recursive parameterless procedure *)
+(* calls with no local variables and forward delcarations.          *)
+
+PROGRAM IS 
+    VAR I : INTEGER := 0;
+    PROCEDURE ADDONE() IS BEGIN
+	I := I + 1;
+    END;
+    PROCEDURE PASSTHEBUCK() IS BEGIN ADDONE(); END;
+BEGIN 
+    WRITE("I = ", I, " (SHOULD BE 0)");
+    PASSTHEBUCK();
+    WRITE("I = ", I, " (SHOULD BE 1)");
+    WRITE("ALL DONE!");
+END;
+

@@ -1,0 +1,14 @@
+(* Testing reals. *)
+
+PROGRAM IS
+    VAR A, B : REAL := 0.0; 
+    C : REAL := 0.0; 
+BEGIN 
+    WRITE ("ENTER TWO REALS:");
+    READ (A, B);
+    C := 8.0;
+    WRITE ("A=", A, ", B=", B, ", C=", C);
+    C := A - (-B) + C;
+    C := C * A + 1;
+    WRITE ( -C /(A + 1));  
+END;

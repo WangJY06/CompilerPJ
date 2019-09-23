@@ -1,0 +1,20 @@
+(* This is a test of for loop. *)
+
+PROGRAM IS
+    VAR I,J : INTEGER := 0;
+BEGIN 
+	WRITE("Ascending loop:");
+	FOR I := 1 TO 5 DO
+	  WRITE("I = ", I);
+        END;
+	WRITE("Descending loop:");
+	FOR I := 5 TO 1 BY -1 DO
+	  WRITE("I = ", I);
+        END;
+	WRITE("Double loop:");
+	FOR I := 1 TO 5 DO
+  	  FOR J := I TO I+10 BY 2 DO
+  	    WRITE("I,J = ", I, ", ", J);
+          END;
+        END;
+END;

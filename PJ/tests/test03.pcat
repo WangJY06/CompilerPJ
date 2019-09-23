@@ -1,0 +1,19 @@
+(* is a test of integer to float conversions. *)
+PROGRAM IS
+    VAR A, B : REAL := 0.0;
+    VAR I, J : INTEGER := 0;
+BEGIN 
+    A := 5.0;
+    I := -3;
+    J := I * 10;
+    B := A + I;
+    A := J / B;
+    J := I - J;
+    I := J / I;  (* erroneous *)
+    B := I - B;
+    WRITE ( " A = ", -A, " | B = ", B);
+    WRITE ( "" );
+    WRITE ( " I = ", I, " |  J = ", J );
+    (* PRINT "1.50E01 -1.10E01 -9 -27" *)
+END;
+
