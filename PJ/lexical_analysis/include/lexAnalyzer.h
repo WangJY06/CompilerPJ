@@ -7,7 +7,7 @@
 
 #include "lexer.h"
 
-enum type yylex();
+extern "C" int yylex();
 extern "C" FILE* yyin;
 extern "C" char* yytext;
 extern "C" int yyleng;

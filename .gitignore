@@ -1,0 +1,8 @@
+*.o
+
+build
+PJ1
+
+*.idea
+
+*.swp

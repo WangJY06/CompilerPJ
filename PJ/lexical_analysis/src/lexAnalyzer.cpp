@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include "lexAnalyzer.h"
+#include "lexer.h"
 
 LexAnalyzer* LexAnalyzer::m_instance = nullptr;
 
@@ -20,7 +21,7 @@ void LexAnalyzer::analyze() {
     std::cout << "lexical analyzing" << std::endl;
 
     while (true) {
-        enum type type = yylex();
+        int type = yylex();
         if (type == T_EOF) break;
 
         std::string token(yytext);
