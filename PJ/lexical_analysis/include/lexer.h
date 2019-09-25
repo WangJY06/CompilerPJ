@@ -12,9 +12,7 @@ enum type {
 	OPERATOR,
 	STRING,
 	COMMENT, // ignored token
-	DEFAULT  // ignored token
+	UNKNOWN  // ignored token
 };
-
-#define RESERVED_KEYWORDS (AND)|OR|IF|FOR
 
 #endif

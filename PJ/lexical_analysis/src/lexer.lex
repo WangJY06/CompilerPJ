@@ -11,19 +11,65 @@ INTEGER     {DIGIT}+
 REAL        {DIGIT}+"."{DIGIT}*
 WS          [ \t\n]+
 COMMENT     "(*"[^("*)")]*"*)"
-DEFAULT     .|\n
+UNKNOWN     .|\n
 LETTER      [a-zA-Z]
 STRING      \"[^\"]*\"
+ID          {LETTER}({LETTER}|{DIGIT})*
+
+ASSIGN      :=
+PLUS        \+
+MINUS       -
+STAR        \*
+SLASH       \/
+LT          <
+LE          <=
+GT          >
+GE          >=
+EQ          =
+NEQ         <>
+
+COLON       :
+SEMICOLON   ;
+COMMA       ,
+DOT         \.
+LPAREN      \(
+RPAREN      \)
+LBRACKET    \[
+RBRACKET    \]
+LBRACE      \{
+RBRACE      \}
+LABRACKET   \[<
+RABRACKET   >\]
+BACKSLASH   \\
 
 
 %%
-{WS}        // return WS; // skip blanks and tabs
-<<EOF>>     return T_EOF;
-{COMMENT}   // return COMMENT; // skip
-{INTEGER}	return INTEGER;
-{REAL}		return REAL;
-{DEFAULT}   return DEFAULT;
-{STRING}    return STRING;
+
+{ASSIGN}    |
+{PLUS}      |
+{MINUS}     |
+{STAR}      |
+{SLASH}     |
+{LT}        |
+{LE}        |
+{GT}        |
+{GE}        |
+{EQ}        |
+{NEQ}       return OPERATOR;
+
+{COLON}     |
+{SEMICOLON} |
+{COMMA}     |
+{DOT}       |
+{LPAREN}    |
+{RPAREN}    |
+{LBRACKET}  |
+{RBRACKET}  |
+{LBRACE}    |
+{RBRACE}    |
+{LABRACKET} |
+{RABRACKET} |
+{BACKSLASH} return DELIMITER;
 
 AND         |
 ARRAY       |
@@ -57,5 +103,12 @@ VAR         |
 WHILE       |
 WRITE       return RESERVED_KEY;
 
-
+{ID}        return ID;
+{WS}        // return WS; // skip blanks and tabs
+<<EOF>>     return T_EOF;
+{COMMENT}   // return COMMENT; // skip
+{INTEGER}   return INTEGER;
+{REAL}      return REAL;
+{STRING}    return STRING;
+{UNKNOWN}   return UNKNOWN;
 %%

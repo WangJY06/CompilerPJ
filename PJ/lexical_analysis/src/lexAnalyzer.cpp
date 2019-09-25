@@ -25,7 +25,7 @@ void LexAnalyzer::analyze() {
         if (type == T_EOF) break;
 
         std::string token(yytext);
-        std::cout << "[type]:" << std::setw(4) << type << " [token]:" << token << std::endl;
+        std::cout << "[type]:" << std::setw(3) << type << "  [token]: " << token << std::endl;
     }
 
 }
