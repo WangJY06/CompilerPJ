@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
 
 #include "lexer.h"
 
@@ -12,13 +13,15 @@ extern "C" FILE* yyin;
 extern "C" char* yytext;
 extern "C" int yyleng;
 
+extern std::map<int, std::string> type2str;
+
 struct Token {
-    enum type type;
+    int type;
     std::string token;
     int row;
     int col;
     Token() {}
-    explicit Token(enum type type, std::string token, int row, int col) : type(type), token(token), row(row), col(col) {}
+    explicit Token(int type, std::string token, int row, int col) : type(type), token(token), row(row), col(col) {}
 };
 
 class LexAnalyzer {
@@ -33,11 +36,12 @@ public:
     }
 
     void analyze();
+    void display();
 
 private:
     LexAnalyzer() {}
     static LexAnalyzer* m_instance;
-    std::vector<Token> *tokens;
+    std::vector<Token> tokens;
 };
 
 #endif //_LEX_ANALYZER_H_

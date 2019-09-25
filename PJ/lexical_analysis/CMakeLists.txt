@@ -7,6 +7,7 @@ add_custom_command(
     COMMAND ${FLEX_EXECUTABLE}
             --outfile=${FlexOutput}
             ${CMAKE_CURRENT_SOURCE_DIR}/src/lexer.lex
+    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/lexer.lex
     COMMENT "Generating lexer.c"
 )
 

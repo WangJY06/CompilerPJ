@@ -12,7 +12,8 @@ enum type {
 	OPERATOR,
 	STRING,
 	COMMENT, // ignored token
-	UNKNOWN  // ignored token
+	UNKNOWN, // ignored token
+	ERROR    // 
 };
 
 #endif

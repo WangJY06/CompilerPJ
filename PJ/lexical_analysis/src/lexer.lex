@@ -103,10 +103,10 @@ VAR         |
 WHILE       |
 WRITE       return RESERVED_KEY;
 
+{WS}        return WS; // skip blanks and tabs
 {ID}        return ID;
-{WS}        // return WS; // skip blanks and tabs
 <<EOF>>     return T_EOF;
-{COMMENT}   // return COMMENT; // skip
+{COMMENT}   return COMMENT; // skip
 {INTEGER}   return INTEGER;
 {REAL}      return REAL;
 {STRING}    return STRING;
