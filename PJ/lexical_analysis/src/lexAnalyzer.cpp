@@ -22,7 +22,6 @@ std::map<int, std::string> type2str {
     {UNKNOWN, "unknown"},
     {ERROR, "error"}
 };
-
 void LexAnalyzer::analyze() {
     int row = 1;
     int col = 1;
@@ -42,15 +41,48 @@ void LexAnalyzer::analyze() {
     }
 }
 
+void LexAnalyzer::sanityCheck() {
+    for (Token& t : tokens) {
+        switch (t.type) {
+            case STRING:
+                if (t.token.find_first_of("\t\n") != std::string::npos) {
+                    t.type = ERROR;
+                    t.token = "Error: String contains tabs or newlines.";
+                }
+                else if (t.token.size() > 257) {
+                    t.type = ERROR;
+                    t.token = "Error: String length out of range.";
+                }
+                break;
+            case INTEGER:
+                if (t.token.size() > 10 || (t.token.size()==10 && t.token > "2147483647")) {
+                    t.type = ERROR;
+                    t.token = "Error: Integer out of range.";
+                }
+                break;
+            case ID:
+                if (t.token.size() > 255) {
+                    t.type = ERROR;
+                    t.token = "Error: Identifier length out of range.";
+                }
+                break;
+            default:
+                break;
+        }
+        if (t.type == ERROR) errorCount++;
+    }
+}
+
 void LexAnalyzer::display() {
     std::cout << std::setw(5) << std::left << "Row" << std::setw(5) << std::left \
-        << "Col" << std::setw(20) << std::left << "Type" << "Token/Error" <<std::endl;
+        << "Col" << std::setw(20) << std::left << "Type" << "Token/Error" << std::endl;
     for (Token t : tokens) {
         int row = t.row;
         int col = t.col;
         std::string type = type2str[t.type];
         std::string token = t.token;
         std::cout << std::setw(5) << std::left << row << std::setw(5) << std::left \
-            << col << std::setw(20) << std::left << type << token <<std::endl;
+            << col << std::setw(20) << std::left << type << token << std::endl;
     }
+    std::cout << errorCount << " errors, " << tokens.size() - errorCount << " tokens." << std::endl;
 }
