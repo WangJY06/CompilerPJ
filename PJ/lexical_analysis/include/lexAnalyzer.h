@@ -36,12 +36,14 @@ public:
     }
 
     void analyze();
+    void sanityCheck();
     void display();
 
 private:
-    LexAnalyzer() {}
+    LexAnalyzer() : errorCount(0) {}
     static LexAnalyzer* m_instance;
     std::vector<Token> tokens;
+    int errorCount;
 };
 
 #endif //_LEX_ANALYZER_H_

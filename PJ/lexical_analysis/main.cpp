@@ -23,6 +23,7 @@ int main(int argc, char** argv) {
 
     LexAnalyzer *lexAnalyzer = LexAnalyzer::GetInstance();
     lexAnalyzer->analyze();
+    lexAnalyzer->sanityCheck();
     lexAnalyzer->display();
     return 0;
 }

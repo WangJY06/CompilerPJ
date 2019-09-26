@@ -10,7 +10,7 @@ DIGIT       [0-9]
 INTEGER     {DIGIT}+
 REAL        {DIGIT}+"."{DIGIT}*
 WS          [ \t\n]+
-COMMENT     "(*"[^("*)")]*"*)"
+COMMENT     \(\*[^(\*\))]*\*\)
 UNKNOWN     .|\n
 LETTER      [a-zA-Z]
 STRING      \"[^\"]*\"
