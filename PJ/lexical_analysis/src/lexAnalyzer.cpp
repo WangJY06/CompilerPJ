@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <algorithm>
 #include <iomanip>
 #include <vector>
 #include <map>
@@ -28,16 +29,34 @@ void LexAnalyzer::analyze() {
 
     while (true) {
         int type = yylex();
+        // std::cout << yytext << ' ' << type2str[type] << std::endl;
         if (type == T_EOF) break;
-        if (type == WS && yytext[0] == '\n') {
+        std::string token(yytext);
+        int newlineCount = std::count(token.begin(), token.end(), '\n');
+        if (type == NEWLINE) {
+            row ++;
+            col = 1;
+            continue;
+        }
+        if (type == COMMENT && newlineCount) {
+            int p = token.find_last_of('\n');
+            row += newlineCount;
+            col = token.size() - p;
+            continue;
+        }
+
+        if (type == WS) {
+            col += yyleng;
+            continue;
+        }
+
+        tokens.push_back(Token(type, token, row, col));
+		if (type == UNTERMINATED_STRING) {
             row++;
             col = 1;
         }
-        if (type == COMMENT || type == WS) continue;
-
-        std::string token(yytext);
-        tokens.push_back(Token(type, token, row, col));
-		col += yyleng;
+        col += yyleng;
+        if (type == UNTERMINATED_COMMENT) break;
     }
 }
 
@@ -65,6 +84,18 @@ void LexAnalyzer::sanityCheck() {
                     t.type = ERROR;
                     t.token = "Error: Identifier length out of range.";
                 }
+                break;
+            case UNTERMINATED_COMMENT:
+                t.type = ERROR;
+                t.token = "Error: unterminated comment.";
+                break;
+            case UNTERMINATED_STRING:
+                t.type = ERROR;
+                t.token = "Error: unterminated string.";
+                break;
+            case UNKNOWN:
+                t.type = ERROR;
+                t.token = "Error: unknown token.";
                 break;
             default:
                 break;

@@ -6,14 +6,18 @@
 %option     nodefault
 
 
+
 DIGIT       [0-9]
 INTEGER     {DIGIT}+
 REAL        {DIGIT}+"."{DIGIT}*
-WS          [ \t\n]+
-COMMENT     \(\*[^(\*\))]*\*\)
+COMMENT     \(\*(([^*])|(\**[^*)]))*\**\*\)
+UNTERMINATED_COMMENT    \(\*(([^*])|(\**[^*)]))*\**$
+UNTERMINATED_STRING     \"[^\"\n]*(\n|$)
+WS          [ \t]+
+NEWLINE     \n
 UNKNOWN     .|\n
 LETTER      [a-zA-Z]
-STRING      \"[^\"]*\"
+STRING      \"[^\"\n]*\"
 ID          {LETTER}({LETTER}|{DIGIT})*
 
 ASSIGN      :=
@@ -104,10 +108,13 @@ WHILE       |
 WRITE       return RESERVED_KEY;
 
 {WS}        return WS; // skip blanks and tabs
+{NEWLINE}   return NEWLINE;
+{UNTERMINATED_STRING} return UNTERMINATED_STRING;
+{UNTERMINATED_COMMENT} return UNTERMINATED_COMMENT;
 {ID}        return ID;
 <<EOF>>     return T_EOF;
-{COMMENT}   return COMMENT; // skip
 {INTEGER}   return INTEGER;
+{COMMENT}   return COMMENT;
 {REAL}      return REAL;
 {STRING}    return STRING;
 {UNKNOWN}   return UNKNOWN;

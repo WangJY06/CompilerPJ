@@ -12,6 +12,9 @@ enum type {
 	OPERATOR,
 	STRING,
 	COMMENT, // ignored token
+	UNTERMINATED_COMMENT,
+	UNTERMINATED_STRING,
+	NEWLINE,
 	UNKNOWN, // ignored token
 	ERROR    // 
 };

@@ -4,6 +4,7 @@ build
 PJ1
 
 *.idea
+*.tar
 
 *.swp
 
