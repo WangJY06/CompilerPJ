@@ -45,6 +45,10 @@ void LexAnalyzer::analyze() {
             continue;
         }
 
+        if (type == COMMENT) {
+            continue;
+        }
+
         if (type == WS) {
             col += yyleng;
             continue;
@@ -55,7 +59,9 @@ void LexAnalyzer::analyze() {
             row++;
             col = 1;
         }
-        col += yyleng;
+        else {
+            col += yyleng;
+        }
         if (type == UNTERMINATED_COMMENT) break;
     }
 }
