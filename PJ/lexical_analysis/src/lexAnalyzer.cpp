@@ -38,14 +38,10 @@ void LexAnalyzer::analyze() {
             col = 1;
             continue;
         }
-        if (type == COMMENT && newlineCount) {
+        if (type == COMMENT) {
             int p = token.find_last_of('\n');
             row += newlineCount;
             col = token.size() - p;
-            continue;
-        }
-
-        if (type == COMMENT) {
             continue;
         }
 
@@ -55,13 +51,13 @@ void LexAnalyzer::analyze() {
         }
 
         tokens.push_back(Token(type, token, row, col));
+        col += yyleng;
+
 		if (type == UNTERMINATED_STRING) {
             row++;
             col = 1;
         }
-        else {
-            col += yyleng;
-        }
+        
         if (type == UNTERMINATED_COMMENT) break;
     }
 }
