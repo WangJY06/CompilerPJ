@@ -2,7 +2,7 @@
 
 ### 说明
 
-所有要求请阅读[PJ1说明](PJ1说明.pdf)和[PJ2说明]
+所有要求请阅读[PJ1说明](PJ1说明.pdf)和[PJ2说明](PJ2说明.pdf)
 
 ### 环境配置
 
@@ -11,7 +11,7 @@
 3. `sudo apt-get install bison`
 
 ### DEMO
-提供一个demo作为入门的参考，在demo基础上补充完成相应功能即可：[demo1](PJ1_demo)
+提供demo作为入门的参考，在demo基础上补充完成相应功能即可：[demo1](PJ1_demo)和[demo2](PJ2_demo)
 
 ### 参考资料
 1. [PCAT语言参考](pcat语言参考指南.pdf)
