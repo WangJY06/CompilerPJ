@@ -1,0 +1,257 @@
+<html lang="zh-CN">
+
+<head>
+    <title>Parse Tree</title>
+</head>
+
+<body>
+    <!-- the demo root element -->
+    <div class="context">
+        <h2>Parse Tree of test08.pcat
+</h2>
+    <ul id="demo">
+        <item class="item" :model="treeData">
+        </item>
+    </ul>
+    <div>
+    <script src="../show/vue.js"></script>
+
+    <!-- item template -->
+    <script type="text/x-template" id="item-template">
+        <li>
+        <div v-if="isError">
+            {{ model.error}}
+        </div>
+        <div
+            :class="{bold: isFolder}"
+            @click="toggle">
+            
+            <span v-if="isFolder">[{{ open ? '-' : ''}}<b style="color:blue">{{ open ? '' : '+'}}</b>]</span>
+            {{ model.name }}
+            <span v-if="model.line!=0">
+                ({{ model.line }},{{ model.col }}) 
+            </span>
+            <b style="color:green"> {{model.info}} </b>
+        </div>
+        <ul v-show="open" v-if="isFolder">
+            <item
+            class="item"
+            v-for="(model, index) in model.children"
+            :key="index"
+            :model="model">
+            </item>
+        </ul>
+        </li>
+</script>
+    <script>
+
+        // demo data
+        var data = { name: 'program',line: '14',col: '5',info: '',
+children: [
+  { name: 'body',line: '14',col: '4',info: '',
+  children: [
+    { name: 'declaration_list',line: '3',col: '10',info: '',
+    children: [
+        { name: 'procedure_decl',line: '9',col: '5',info: '',
+        children: [
+          { name: 'identifier',line: '4',col: '13',info: 'FOO', },
+          { name: 'component',line: '4',col: '27',info: '',
+          children: [
+            { name: 'fp_section',line: '4',col: '19',info: '',
+            children: [
+              { name: 'identifier',line: '4',col: '15',info: 'X', },
+              { name: 'identifier',line: '4',col: '19',info: 'INT', },
+            ] },
+              { name: 'fp_section',line: '4',col: '26',info: '',
+              children: [
+                { name: 'identifier',line: '4',col: '21',info: 'Y', },
+                { name: 'identifier',line: '4',col: '26',info: 'REAL', },
+              ] },
+          ] },
+          { name: 'identifier',line: '4',col: '32',info: 'REAL', },
+          { name: 'body',line: '9',col: '4',info: '',
+          children: [
+                { name: 'procedure_decl',line: '5',col: '35',info: '',
+                children: [
+                  { name: 'identifier',line: '5',col: '13',info: 'BAR', },
+                  { name: 'formal_params',line: '5',col: '15',info: '', },
+                  { name: 'typename',line: '5',col: '17',info: '', },
+                  { name: 'body',line: '5',col: '34',info: '',
+                  children: [
+                      { name: 'statement',line: '5',col: '31',info: '',
+                      children: [
+                        { name: 'lvalue',line: '5',col: '25',info: '',
+                        children: [
+                          { name: 'identifier',line: '5',col: '23',info: 'Y', },
+                        ] },
+                        { name: 'expression',line: '5',col: '31',info: 'X+1.0',
+                        children: [
+                          { name: 'expression',line: '5',col: '27',info: 'X',
+                          children: [
+                            { name: 'lvalue',line: '5',col: '27',info: '',
+                            children: [
+                              { name: 'identifier',line: '5',col: '26',info: 'X', },
+                            ] },
+                          ] },
+                          { name: 'operator',line: '0',col: '0',info: '+', },
+                          { name: 'expression',line: '5',col: '30',info: '1.0',
+                          children: [
+                            { name: 'real',line: '5',col: '30',info: '1.0', },
+                          ] },
+                        ] },
+                      ] },
+                  ] },
+                ] },
+            { name: 'statement_list',line: '6',col: '6',info: '',
+            children: [
+              { name: 'statement',line: '7',col: '7',info: '',
+              children: [
+                { name: 'identifier',line: '7',col: '4',info: 'BAR', },
+                { name: 'actual_params',line: '7',col: '6',info: '', },
+              ] },
+              { name: 'statement',line: '8',col: '9',info: '',
+              children: [
+                { name: 'expression_01',line: '8',col: '9',info: '',
+                children: [
+                  { name: 'expression',line: '8',col: '9',info: 'Y',
+                  children: [
+                    { name: 'lvalue',line: '8',col: '9',info: '',
+                    children: [
+                      { name: 'identifier',line: '8',col: '8',info: 'Y', },
+                    ] },
+                  ] },
+                ] },
+              ] },
+            ] },
+          ] },
+        ] },
+        { name: 'var_decl',line: '10',col: '14',info: '',
+        children: [
+          { name: 'identifier',line: '10',col: '5',info: 'C', },
+          { name: 'identifier',line: '10',col: '10',info: 'REAL', },
+          { name: 'expression',line: '10',col: '13',info: '0',
+          children: [
+            { name: 'integer',line: '10',col: '13',info: '0', },
+          ] },
+        ] },
+    ] },
+    { name: 'statement_list',line: '11',col: '6',info: '',
+    children: [
+      { name: 'statement',line: '12',col: '15',info: '',
+      children: [
+        { name: 'lvalue',line: '12',col: '4',info: '',
+        children: [
+          { name: 'identifier',line: '12',col: '2',info: 'C', },
+        ] },
+        { name: 'expression_i',line: '12',col: '14',info: '',
+        children: [
+          { name: 'identifier',line: '12',col: '7',info: 'FOO', },
+          { name: 'actual_params',line: '12',col: '14',info: '',
+          children: [
+            { name: 'expression',line: '12',col: '9',info: '3',
+            children: [
+              { name: 'integer',line: '12',col: '9',info: '3', },
+            ] },
+              { name: 'expression',line: '12',col: '13',info: '2.0',
+              children: [
+                { name: 'real',line: '12',col: '13',info: '2.0', },
+              ] },
+          ] },
+        ] },
+      ] },
+      { name: 'statement',line: '13',col: '36',info: '',
+      children: [
+        { name: 'write_params',line: '13',col: '35',info: '',
+        children: [
+          { name: 'write_expr',line: '13',col: '13',info: '',
+          children: [
+            { name: 'string',line: '13',col: '13',info: '"C = "', },
+          ] },
+          { name: 'write_expr_list',line: '13',col: '13',info: '',
+          children: [
+            { name: 'write_expr',line: '13',col: '16',info: '',
+            children: [
+              { name: 'expression',line: '13',col: '16',info: 'C',
+              children: [
+                { name: 'lvalue',line: '13',col: '16',info: '',
+                children: [
+                  { name: 'identifier',line: '13',col: '15',info: 'C', },
+                ] },
+              ] },
+            ] },
+            { name: 'write_expr',line: '13',col: '34',info: '',
+            children: [
+              { name: 'string',line: '13',col: '34',info: '" (should be 4.0)"', },
+            ] },
+          ] },
+        ] },
+      ] },
+    ] },
+  ] },
+] }
+// define the item component
+Vue.component('item', {
+    template: '#item-template',
+    props: {
+        model: Object
+    },
+    data: function () {
+        return {
+            open: false
+        }
+    },
+    computed: {
+        isFolder: function () {
+            return this.model.children &&
+                this.model.children.length
+        },
+        isError: function () {
+            return this.model.error
+        }
+    },
+    methods: {
+        toggle: function () {
+            if (this.isFolder) {
+                this.open = !this.open
+            }
+        }
+    }
+})
+
+// boot up the demo
+var demo = new Vue({
+    el: '#demo',
+    data: {
+        treeData: data
+    }
+})
+</script>
+</body>
+<style>
+body {
+font-family: Menlo, Consolas, monospace;
+color: #444;
+}
+
+.context{
+margin-top: 2%;
+margin-left: 10%;
+}
+
+.item {
+cursor: pointer;
+}
+
+.bold {
+/* font-weight: bold; */
+}
+
+ul {
+padding-left: 1em;
+line-height: 1.5em;
+list-style-type: dot;
+}
+</style>
+
+
+</html>
