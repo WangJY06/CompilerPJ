@@ -17,10 +17,11 @@ using namespace std;
 %type <val> exp
 %type <val> factor
 %type <val> term
+%type <val> number
 
 %%
 calc:
-  calc exp EOL { cout << "= " << $2 << endl; }
+  | calc exp EOL { cout << "= " << $2 << endl; }
   ;
 exp:
   factor
