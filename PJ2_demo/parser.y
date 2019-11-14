@@ -5,6 +5,10 @@
 using namespace std;
 
 // node_t* root;
+void yyerror(const char *msg) {
+	cout << "Error at line: " << line << ", column: " << col << endl;
+	cerr << msg << endl;
+}
 %}
 
 %union {
