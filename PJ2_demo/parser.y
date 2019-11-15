@@ -5,6 +5,10 @@
 using namespace std;
 
 // node_t* root;
+void yyerror(const char *msg) {
+	cout << "Error at line: " << line << ", column: " << col << endl;
+	cerr << msg << endl;
+}
 %}
 
 %union {
@@ -17,10 +21,11 @@ using namespace std;
 %type <val> exp
 %type <val> factor
 %type <val> term
+%type <val> number
 
 %%
 calc:
-  calc exp EOL { cout << "= " << $2 << endl; }
+  | calc exp EOL { cout << "= " << $2 << endl; }
   ;
 exp:
   factor

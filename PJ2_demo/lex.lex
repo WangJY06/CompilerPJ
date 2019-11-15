@@ -1,7 +1,6 @@
 %{
-#include "lex.h"
+#include "parser.h"
 int line = 1, col = 1;
-void yyerror(const char *msg);
 %}
 %option     noyywrap
 
@@ -24,8 +23,3 @@ WS          [ \t]+
 "("         { col += strlen(yytext); return LPAREN; }
 ")"         { col += strlen(yytext); return RPAREN; }
 %%
-
-void yyerror(const char *msg) {
-	cout << "Error at line: " << line << ", column: " << col << endl;
-	cerr << msg << endl;
-}
