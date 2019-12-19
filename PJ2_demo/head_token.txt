@@ -1,0 +1,33 @@
+PROGRAM
+VAR 
+TYPE 
+PROCEDURE 
+ARRAY 
+RECORD 
+READ 
+WRITE 
+IF 
+WHILE 
+LOOP 
+FOR 
+EXIT 
+RETURN 
+
+%type <keyword_type> program
+%type <keyword_type> var
+%type <keyword_type> type
+%type <keyword_type> procedure
+%type <keyword_type> array
+%type <keyword_type> record
+%type <keyword_type> read
+%type <keyword_type> write
+%type <keyword_type> if
+%type <keyword_type> while
+%type <keyword_type> loop
+%type <keyword_type> for
+%type <keyword_type> exit
+%type <keyword_type> return
+
+最新一次： 188fd8896a111a2cc3bba4667866005565fd0b32
+昨天晚上最后一次：0546ec63b449c0e39450861727151af7a6263a87
+9f2ad1d677459654a00f5211c1a93aadb64a4ddb 这一次commit过不了19

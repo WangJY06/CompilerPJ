@@ -18,5 +18,5 @@ lex.c: lex.lex
 		$(LEX) -o lex.c lex.lex
 
 clean:
-		@-rm -f *.o *~ lexer.c parser.c parser.h demo
+		@-rm -f *.o *~ *.c parser.h demo
 .PHONY: clean

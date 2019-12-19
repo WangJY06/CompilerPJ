@@ -1,0 +1,75 @@
+program (2,1)
+  body_define (3,5)
+    declare_list (3,5)
+      variable_declare_list (3,5)
+        variable_declare (3,9)
+          identifier (3,9) A
+          type (3,16) REAL
+          real (3,24) 0.0
+        variable_declare (3,12)
+          identifier (3,12) B
+          type (3,16) REAL
+          real (3,24) 0.0
+      variable_declare_list (4,5)
+        variable_declare (4,9)
+          identifier (4,9) I
+          type (4,16) INTEGER
+          integer (4,27) 0
+        variable_declare (4,12)
+          identifier (4,12) J
+          type (4,16) INTEGER
+          integer (4,27) 0
+    statement_list (6,5)
+      assign_statement (6,5)
+        identifier (6,5) A
+        real (6,10) 5.0
+      assign_statement (7,5)
+        identifier (7,5) I
+        uminus (7,11)
+          integer (7,11) 3
+      assign_statement (8,5)
+        identifier (8,5) J
+        multiply (8,10)
+          identifier (8,10) I
+          integer (8,14) 10
+      assign_statement (9,5)
+        identifier (9,5) B
+        plus (9,10)
+          identifier (9,10) A
+          identifier (9,14) I
+      assign_statement (10,5)
+        identifier (10,5) A
+        slash (10,10)
+          identifier (10,10) J
+          identifier (10,14) B
+      assign_statement (11,5)
+        identifier (11,5) J
+        minus (11,10)
+          identifier (11,10) I
+          identifier (11,14) J
+      assign_statement (12,5)
+        identifier (12,5) I
+        slash (12,10)
+          identifier (12,10) J
+          identifier (12,14) I
+      assign_statement (13,5)
+        identifier (13,5) B
+        minus (13,10)
+          identifier (13,10) I
+          identifier (13,14) B
+      write_statement (14,5)
+        expression_list (14,13)
+          string (14,13) " A = "
+          uminus (14,23)
+            identifier (14,23) A
+          string (14,26) " | B = "
+          identifier (14,37) B
+      write_statement (15,5)
+        expression_list (15,13)
+          string (15,13) ""
+      write_statement (16,5)
+        expression_list (16,13)
+          string (16,13) " I = "
+          identifier (16,22) I
+          string (16,25) " |  J = "
+          identifier (16,37) J

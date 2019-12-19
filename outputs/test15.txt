@@ -1,0 +1,79 @@
+program (4,1)
+  body_define (5,5)
+    declare_list (5,5)
+      variable_declare_list (5,5)
+        variable_declare (5,9)
+          identifier (5,9) I
+          type (5,13) INTEGER
+          integer (5,24) 0
+      procedure_declare_list (6,5)
+        procedure_declare (6,15)
+          identifier (6,15) ADDONE
+          formal_parameter_list (6,22)
+          voidtype (6,26)
+          body_define (7,5)
+            declare_list (7,5)
+              variable_declare_list (7,5)
+                variable_declare (7,9)
+                  identifier (7,9) J
+                  type (7,13) INTEGER
+                  integer (7,24) 0
+              procedure_declare_list (8,5)
+                procedure_declare (8,15)
+                  identifier (8,15) OKAY
+                  formal_parameter_list (8,20)
+                  voidtype (8,24)
+                  body_define (9,9)
+                    declare_list (9,9)
+                      variable_declare_list (9,9)
+                        variable_declare (9,13)
+                          identifier (9,13) CONSTANT
+                          type (9,24) INTEGER
+                          integer (9,35) 0
+                    statement_list (11,9)
+                      assign_statement (11,9)
+                        identifier (11,9) CONSTANT
+                        integer (11,21) 1
+                      assign_statement (12,9)
+                        identifier (12,9) J
+                        plus (12,14)
+                          identifier (12,14) J
+                          identifier (12,18) CONSTANT
+            statement_list (15,5)
+              assign_statement (15,5)
+                identifier (15,5) J
+                identifier (15,10) I
+              call_statement (16,5)
+                identifier (16,5) OKAY
+                expression_list (16,10)
+              assign_statement (17,5)
+                identifier (17,5) I
+                identifier (17,10) J
+    statement_list (20,5)
+      assign_statement (20,5)
+        identifier (20,5) I
+        integer (20,10) 0
+      write_statement (21,5)
+        expression_list (21,11)
+          string (21,11) "I = "
+          identifier (21,19) I
+          string (21,22) " (SHOULD BE 0)"
+      call_statement (22,5)
+        identifier (22,5) ADDONE
+        expression_list (22,12)
+      write_statement (23,5)
+        expression_list (23,11)
+          string (23,11) "I = "
+          identifier (23,19) I
+          string (23,22) " (SHOULD BE 1)"
+      call_statement (24,5)
+        identifier (24,5) ADDONE
+        expression_list (24,12)
+      write_statement (25,5)
+        expression_list (25,11)
+          string (25,11) "I = "
+          identifier (25,19) I
+          string (25,22) " (SHOULD BE 2)"
+      write_statement (26,5)
+        expression_list (26,11)
+          string (26,11) "ALL DONE!"

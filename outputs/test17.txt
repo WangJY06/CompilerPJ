@@ -1,0 +1,112 @@
+program (4,1)
+  body_define (5,5)
+    declare_list (5,5)
+      variable_declare_list (5,5)
+        variable_declare (5,9)
+          identifier (5,9) I
+          type (5,21) INTEGER
+          integer (5,32) 0
+        variable_declare (5,12)
+          identifier (5,12) ANSWER
+          type (5,21) INTEGER
+          integer (5,32) 0
+      procedure_declare_list (6,5)
+        procedure_declare (6,15)
+          identifier (6,15) FACTORIAL
+          formal_parameter_list (6,25)
+          voidtype (6,29)
+          body_define (7,5)
+            declare_list (7,5)
+              variable_declare_list (7,5)
+                variable_declare (7,9)
+                  identifier (7,9) J
+                  type (7,13) INTEGER
+                  integer (7,24) 0
+              procedure_declare_list (8,5)
+                procedure_declare (9,11)
+                  identifier (9,11) FACT
+                  formal_parameter_list (9,16)
+                  voidtype (9,20)
+                  body_define (9,21)
+                    declare_list (9,21)
+                    statement_list (10,9)
+                      if_statement (10,9)
+                        less&equal (10,12)
+                          identifier (10,12) J
+                          identifier (10,17) I
+                        statement_list (10,24)
+                          call_statement (10,24)
+                            identifier (10,24) MULT
+                            expression_list (10,29)
+                          assign_statement (10,32)
+                            identifier (10,32) J
+                            plus (10,37)
+                              identifier (10,37) J
+                              integer (10,41) 1
+                          call_statement (10,44)
+                            identifier (10,44) FACT
+                            expression_list (10,49)
+                        empty_statement (0,0)
+                procedure_declare (12,7)
+                  identifier (12,7) MULT
+                  formal_parameter_list (12,12)
+                  voidtype (12,16)
+                  body_define (13,9)
+                    declare_list (13,9)
+                      variable_declare_list (13,9)
+                        variable_declare (13,13)
+                          identifier (13,13) I
+                          type (13,17) INTEGER
+                          integer (13,28) 0
+                    statement_list (15,9)
+                      assign_statement (15,9)
+                        identifier (15,9) I
+                        identifier (15,14) ANSWER
+                      assign_statement (16,13)
+                        identifier (16,13) I
+                        multiply (16,18)
+                          identifier (16,18) I
+                          identifier (16,22) J
+                      assign_statement (17,13)
+                        identifier (17,13) ANSWER
+                        identifier (17,23) I
+            statement_list (20,5)
+              assign_statement (20,5)
+                identifier (20,5) ANSWER
+                integer (20,15) 1
+              assign_statement (21,5)
+                identifier (21,5) J
+                integer (21,10) 1
+              call_statement (22,5)
+                identifier (22,5) FACT
+                expression_list (22,10)
+    statement_list (25,5)
+      write_statement (25,5)
+        expression_list (25,12)
+          string (25,12) "The first 5 factorials are (in ascending order):"
+      assign_statement (26,5)
+        identifier (26,5) I
+        integer (26,10) 1
+      loop_statement (27,5)
+        statement_list (28,5)
+          if_statement (28,5)
+            greaterthan (28,8)
+              identifier (28,8) I
+              integer (28,12) 5
+            statement_list (28,19)
+              exit_statement (28,19)
+            empty_statement (0,0)
+          call_statement (29,9)
+            identifier (29,9) FACTORIAL
+            expression_list (29,19)
+          write_statement (30,9)
+            expression_list (30,15)
+              string (30,15) "FACTORIAL("
+              identifier (30,29) I
+              string (30,32) ") = "
+              identifier (30,40) ANSWER
+          assign_statement (31,5)
+            identifier (31,5) I
+            plus (31,10)
+              identifier (31,10) I
+              integer (31,14) 1

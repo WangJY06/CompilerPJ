@@ -1,0 +1,180 @@
+program (3,1)
+  body_define (4,5)
+    declare_list (4,5)
+      variable_declare_list (4,5)
+        variable_declare (4,9)
+          identifier (4,9) I
+          type (4,13) INTEGER
+          integer (4,24) 0
+      type_declare_list (5,5)
+        type_declare (5,10)
+          identifier (5,10) COMPLEX
+          record_type (5,21)
+            component_list (5,28)
+              component (5,28)
+                identifier (5,28) R
+                type (5,31) REAL
+              component (5,37)
+                identifier (5,37) I
+                type (5,41) REAL
+      type_declare_list (6,5)
+        type_declare (6,10)
+          identifier (6,10) PAIR
+          record_type (6,18)
+            component_list (6,25)
+              component (6,25)
+                identifier (6,25) FIRST
+                type (6,32) COMPLEX
+              component (6,41)
+                identifier (6,41) SECOND
+                type (6,50) COMPLEX
+      variable_declare_list (7,5)
+        variable_declare (7,9)
+          identifier (7,9) C
+          type (7,13) COMPLEX
+          record_expresion (7,24)
+            identifier (7,24) COMPLEX
+            recordinit_list (7,34)
+              recordinit (7,34)
+                identifier (7,34) R
+                real (7,39) 0.0
+              recordinit (7,44)
+                identifier (7,44) I
+                real (7,49) 0.0
+      variable_declare_list (8,5)
+        variable_declare (8,9)
+          identifier (8,9) P
+          type (8,13) PAIR
+          record_expresion (8,21)
+            identifier (8,21) PAIR
+            recordinit_list (8,28)
+              recordinit (8,28)
+                identifier (8,28) FIRST
+                record_expresion (8,37)
+                  identifier (8,37) COMPLEX
+                  recordinit_list (8,47)
+                    recordinit (8,47)
+                      identifier (8,47) R
+                      real (8,52) 0.0
+                    recordinit (8,57)
+                      identifier (8,57) I
+                      real (8,62) 0.0
+              recordinit (9,28)
+                identifier (9,28) SECOND
+                record_expresion (9,38)
+                  identifier (9,38) COMPLEX
+                  recordinit_list (9,48)
+                    recordinit (9,48)
+                      identifier (9,48) R
+                      real (9,53) 0.0
+                    recordinit (9,58)
+                      identifier (9,58) I
+                      real (9,63) 0.0
+      procedure_declare_list (10,5)
+        procedure_declare (10,15)
+          identifier (10,15) PRINT
+          formal_parameter_list (10,21)
+          voidtype (10,25)
+          body_define (10,26)
+            declare_list (10,26)
+            statement_list (11,5)
+              write_statement (11,5)
+                expression_list (11,11)
+                  string (11,11) "    ("
+                  record_dereference (11,20)
+                    identifier (11,20) C
+                    identifier (11,22) R
+                  string (11,25) ", "
+                  record_dereference (11,31)
+                    identifier (11,31) C
+                    identifier (11,33) I
+                  string (11,36) ")"
+    statement_list (14,5)
+      assign_statement (14,5)
+        record_dereference (14,5)
+          identifier (14,5) C
+          identifier (14,7) R
+        real (14,12) 1.0
+      assign_statement (15,5)
+        record_dereference (15,5)
+          identifier (15,5) C
+          identifier (15,7) I
+        real (15,12) 0.0
+      assign_statement (16,5)
+        record_dereference (16,5)
+          identifier (16,5) P
+          identifier (16,7) FIRST
+        identifier (16,16) C
+      assign_statement (17,5)
+        record_dereference (17,5)
+          identifier (17,5) C
+          identifier (17,7) R
+        real (17,12) 0.0
+      assign_statement (18,5)
+        record_dereference (18,5)
+          identifier (18,5) C
+          identifier (18,7) I
+        real (18,12) 1.0
+      assign_statement (19,5)
+        record_dereference (19,5)
+          identifier (19,5) P
+          identifier (19,7) SECOND
+        identifier (19,17) C
+      assign_statement (20,5)
+        identifier (20,5) C
+        record_dereference (20,10)
+          identifier (20,10) P
+          identifier (20,12) FIRST
+      write_statement (21,5)
+        expression_list (21,12)
+          string (21,12) "The first complex number should be (1.0, 0.0):"
+      call_statement (22,5)
+        identifier (22,5) PRINT
+        expression_list (22,11)
+      assign_statement (23,5)
+        identifier (23,5) C
+        record_dereference (23,10)
+          identifier (23,10) P
+          identifier (23,12) SECOND
+      write_statement (24,5)
+        expression_list (24,12)
+          string (24,12) "The second complex number should be (0.0, 1.0):"
+      call_statement (25,5)
+        identifier (25,5) PRINT
+        expression_list (25,11)
+      if_statement (26,5)
+        notequal (26,8)
+          record_dereference (26,8)
+            record_dereference (26,8)
+              identifier (26,8) P
+              identifier (26,10) FIRST
+            identifier (26,16) R
+          record_dereference (26,21)
+            record_dereference (26,21)
+              identifier (26,21) P
+              identifier (26,23) SECOND
+            identifier (26,30) R
+        statement_list (27,5)
+          write_statement (27,5)
+            expression_list (27,12)
+              string (27,12) "and these two complex numbers are not equal!"
+        if_statement (28,11)
+          notequal (28,11)
+            record_dereference (28,11)
+              record_dereference (28,11)
+                identifier (28,11) P
+                identifier (28,13) FIRST
+              identifier (28,19) I
+            record_dereference (28,24)
+              record_dereference (28,24)
+                identifier (28,24) P
+                identifier (28,26) SECOND
+              identifier (28,33) I
+          statement_list (29,5)
+            write_statement (29,5)
+              expression_list (29,12)
+                string (29,12) "and these two complex numbers are not equal!"
+          statement_list (31,5)
+            write_statement (31,5)
+              expression_list (31,12)
+                string (31,12) "and these two complex numbers are equal?"

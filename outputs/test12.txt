@@ -1,0 +1,49 @@
+program (4,1)
+  body_define (5,5)
+    declare_list (5,5)
+      variable_declare_list (5,5)
+        variable_declare (5,9)
+          identifier (5,9) I
+          type (5,13) INTEGER
+          integer (5,24) 0
+      procedure_declare_list (6,5)
+        procedure_declare (6,15)
+          identifier (6,15) ADDONE
+          formal_parameter_list (6,22)
+          voidtype (6,26)
+          body_define (6,27)
+            declare_list (6,27)
+            statement_list (7,5)
+              assign_statement (7,5)
+                identifier (7,5) I
+                plus (7,10)
+                  identifier (7,10) I
+                  integer (7,14) 1
+      procedure_declare_list (9,5)
+        procedure_declare (9,15)
+          identifier (9,15) PASSTHEBUCK
+          formal_parameter_list (9,27)
+          voidtype (9,31)
+          body_define (9,32)
+            declare_list (9,32)
+            statement_list (9,38)
+              call_statement (9,38)
+                identifier (9,38) ADDONE
+                expression_list (9,45)
+    statement_list (11,5)
+      write_statement (11,5)
+        expression_list (11,11)
+          string (11,11) "I = "
+          identifier (11,19) I
+          string (11,22) " (SHOULD BE 0)"
+      call_statement (12,5)
+        identifier (12,5) PASSTHEBUCK
+        expression_list (12,17)
+      write_statement (13,5)
+        expression_list (13,11)
+          string (13,11) "I = "
+          identifier (13,19) I
+          string (13,22) " (SHOULD BE 1)"
+      write_statement (14,5)
+        expression_list (14,11)
+          string (14,11) "ALL DONE!"

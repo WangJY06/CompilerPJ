@@ -13,8 +13,8 @@ BEGIN
         END;
 	WRITE("Double loop:");
 	FOR I := 1 TO 5 DO
-  	  FOR J := I TO I+10 BY 2 DO
-  	    WRITE("I,J = ", I, ", ", J);
+	  FOR J := I TO I+10 BY 2 DO
+	    WRITE("I,J = ", I, ", ", J);
           END;
         END;
 END;

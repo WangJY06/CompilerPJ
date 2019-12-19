@@ -1,0 +1,33 @@
+program (3,1)
+  body_define (4,5)
+    declare_list (4,5)
+      variable_declare_list (4,5)
+        variable_declare (4,9)
+          identifier (4,9) A
+          type (4,13) INTEGER
+          integer (4,24) 0
+      variable_declare_list (5,5)
+        variable_declare (5,9)
+          identifier (5,9) B
+          type (5,13) BOOLEAN
+          constant (5,24) FALSE
+    statement_list (7,5)
+      while_statement (7,5)
+        not (7,15)
+          identifier (7,15) B
+        statement_list (8,7)
+          assign_statement (8,7)
+            identifier (8,7) A
+            plus (8,12)
+              identifier (8,12) A
+              integer (8,16) 1
+          assign_statement (9,7)
+            identifier (9,7) B
+            greaterthan (9,12)
+              identifier (9,12) A
+              integer (9,16) 100
+      write_statement (11,5)
+        expression_list (11,12)
+          string (11,12) "A = "
+          identifier (11,20) A
+          string (11,23) " (SHOULD BE 101)"

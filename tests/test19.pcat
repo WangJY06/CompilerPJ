@@ -7,6 +7,6 @@ BEGIN
     WHILE NOT B DO
       A := A + 1;
       B := A > 100;
-    END
+    END;
     WRITE ("A = ", A, " (SHOULD BE 101)");
 END;

@@ -1,0 +1,11 @@
+ ./demo ../tests/test01.pcat  > ../outputs/test01.txt
+ ./demo ../tests/test02.pcat  > ../outputs/test02.txt 
+ ./demo ../tests/test03.pcat  > ../outputs/test03.txt
+ ./demo ../tests/test05.pcat  > ../outputs/test05.txt
+ ./demo ../tests/test07.pcat  > ../outputs/test07.txt
+ ./demo ../tests/test08.pcat  > ../outputs/test08.txt
+ ./demo ../tests/test12.pcat  > ../outputs/test12.txt
+ ./demo ../tests/test15.pcat  > ../outputs/test15.txt
+ ./demo ../tests/test16.pcat  > ../outputs/test16.txt
+ ./demo ../tests/test17.pcat  > ../outputs/test17.txt
+ ./demo ../tests/test19.pcat  > ../outputs/test19.txt

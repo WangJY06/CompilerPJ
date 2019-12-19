@@ -1,0 +1,58 @@
+program (3,1)
+  body_define (4,5)
+    declare_list (4,5)
+      variable_declare_list (4,5)
+        variable_declare (4,9)
+          identifier (4,9) A
+          type (4,16) REAL
+          real (4,24) 0.0
+        variable_declare (4,12)
+          identifier (4,12) B
+          type (4,16) REAL
+          real (4,24) 0.0
+        variable_declare (5,5)
+          identifier (5,5) C
+          type (5,9) REAL
+          real (5,17) 0.0
+    statement_list (7,5)
+      write_statement (7,5)
+        expression_list (7,12)
+          string (7,12) "ENTER TWO REALS:"
+      read_statement (8,5)
+        lval_list (8,11)
+          identifier (8,11) A
+          identifier (8,14) B
+      assign_statement (9,5)
+        identifier (9,5) C
+        real (9,10) 8.0
+      write_statement (10,5)
+        expression_list (10,12)
+          string (10,12) "A="
+          identifier (10,18) A
+          string (10,21) ", B="
+          identifier (10,29) B
+          string (10,32) ", C="
+          identifier (10,40) C
+      assign_statement (11,5)
+        identifier (11,5) C
+        plus (11,10)
+          minus (11,10)
+            identifier (11,10) A
+            uminus (11,16)
+              identifier (11,16) B
+          identifier (11,21) C
+      assign_statement (12,5)
+        identifier (12,5) C
+        plus (12,10)
+          multiply (12,10)
+            identifier (12,10) C
+            identifier (12,14) A
+          integer (12,18) 1
+      write_statement (13,5)
+        expression_list (13,14)
+          slash (13,14)
+            uminus (13,14)
+              identifier (13,14) C
+            plus (13,18)
+              identifier (13,18) A
+              integer (13,22) 1

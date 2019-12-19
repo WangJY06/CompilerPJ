@@ -1,0 +1,35 @@
+program (4,1)
+  body_define (5,5)
+    declare_list (5,5)
+      variable_declare_list (5,5)
+        variable_declare (5,9)
+          identifier (5,9) i
+          type (5,16) INTEGER
+          integer (5,27) 1
+        variable_declare (5,12)
+          identifier (5,12) j
+          type (5,16) INTEGER
+          integer (5,27) 1
+      variable_declare_list (6,5)
+        variable_declare (6,9)
+          identifier (6,9) x
+          type (6,13) REAL
+          real (6,21) 2.0
+      variable_declare_list (7,5)
+        variable_declare (7,9)
+          identifier (7,9) y
+          type (7,13) REAL
+          real (7,21) 3.0
+    statement_list (9,5)
+      write_statement (9,5)
+        expression_list (9,12)
+          string (9,12) "i = "
+          identifier (9,20) i
+          string (9,23) ", j = "
+          identifier (9,33) j
+      write_statement (10,5)
+        expression_list (10,12)
+          string (10,12) "x = "
+          identifier (10,20) x
+          string (10,23) ", y = "
+          identifier (10,33) y

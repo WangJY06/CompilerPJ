@@ -1,0 +1,53 @@
+program (3,1)
+  body_define (4,5)
+    declare_list (4,5)
+      procedure_declare_list (4,5)
+        procedure_declare (4,15)
+          identifier (4,15) FOO
+          formal_parameter_list (4,19)
+            parameter (4,19)
+              identifier (4,19) X
+              type (4,22) INT
+            parameter (4,27)
+              identifier (4,27) Y
+              type (4,30) REAL
+          type (4,36) REAL
+          body_define (5,7)
+            declare_list (5,7)
+              procedure_declare_list (5,7)
+                procedure_declare (5,17)
+                  identifier (5,17) BAR
+                  formal_parameter_list (5,21)
+                  voidtype (5,25)
+                  body_define (5,26)
+                    declare_list (5,26)
+                    statement_list (5,32)
+                      assign_statement (5,32)
+                        identifier (5,32) Y
+                        plus (5,37)
+                          identifier (5,37) X
+                          real (5,41) 1.0
+            statement_list (7,9)
+              call_statement (7,9)
+                identifier (7,9) BAR
+                expression_list (7,13)
+              return_statement (8,5)
+                identifier (8,12) Y
+      variable_declare_list (10,5)
+        variable_declare (10,9)
+          identifier (10,9) C
+          type (10,13) REAL
+          integer (10,21) 0
+    statement_list (12,5)
+      assign_statement (12,5)
+        identifier (12,5) C
+        call_expression (12,10)
+          identifier (12,10) FOO
+          expression_list (12,14)
+            integer (12,14) 3
+            real (12,17) 2.0
+      write_statement (13,5)
+        expression_list (13,11)
+          string (13,11) "C = "
+          identifier (13,19) C
+          string (13,22) " (should be 4.0)"

@@ -1,0 +1,63 @@
+program (3,1)
+  body_define (4,5)
+    declare_list (4,5)
+      variable_declare_list (4,5)
+        variable_declare (4,9)
+          identifier (4,9) I
+          type (4,15) INTEGER
+          integer (4,26) 0
+        variable_declare (4,11)
+          identifier (4,11) J
+          type (4,15) INTEGER
+          integer (4,26) 0
+    statement_list (6,5)
+      write_statement (6,5)
+        expression_list (6,11)
+          string (6,11) "Ascending loop:"
+      for_statement (7,5)
+        identifier (7,9) I
+        integer (7,14) 1
+        integer (7,19) 5
+        integer (7,22) 1
+        statement_list (8,7)
+          write_statement (8,7)
+            expression_list (8,13)
+              string (8,13) "I = "
+              identifier (8,21) I
+      write_statement (10,5)
+        expression_list (10,11)
+          string (10,11) "Descending loop:"
+      for_statement (11,5)
+        identifier (11,9) I
+        integer (11,14) 5
+        integer (11,19) 1
+        uminus (11,25)
+          integer (11,25) 1
+        statement_list (12,7)
+          write_statement (12,7)
+            expression_list (12,13)
+              string (12,13) "I = "
+              identifier (12,21) I
+      write_statement (14,5)
+        expression_list (14,11)
+          string (14,11) "Double loop:"
+      for_statement (15,5)
+        identifier (15,9) I
+        integer (15,14) 1
+        integer (15,19) 5
+        integer (15,22) 1
+        statement_list (16,7)
+          for_statement (16,7)
+            identifier (16,11) J
+            identifier (16,16) I
+            plus (16,21)
+              identifier (16,21) I
+              integer (16,23) 10
+            integer (16,29) 2
+            statement_list (17,9)
+              write_statement (17,9)
+                expression_list (17,15)
+                  string (17,15) "I,J = "
+                  identifier (17,25) I
+                  string (17,28) ", "
+                  identifier (17,34) J
